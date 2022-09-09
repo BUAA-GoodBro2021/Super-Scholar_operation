@@ -1,6 +1,6 @@
 ### 架构图
 
-![structure](D:\Github\Super-Scholar_operation\structure.png)
+![structure](structure.png)
 
 ### Makefile
 
