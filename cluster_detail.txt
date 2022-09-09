@@ -1,0 +1,42 @@
+[+] Cluster Level SSH Private Key Path [~/.ssh/id_rsa]: ~/.ssh/id_rsa
+[+] Number of Hosts [1]: 3
+[+] SSH Address of host (1) [none]: 192.168.71.201
+[+] SSH Port of host (1) [22]: 22
+[+] SSH Private Key Path of host (192.168.71.201) [none]: ~/.ssh/id_rsa
+[+] SSH User of host (192.168.71.201) [ubuntu]: rancher
+[+] Is host (192.168.71.201) a Control Plane host (y/n)? [y]: y
+[+] Is host (192.168.71.201) a Worker host (y/n)? [n]: y
+[+] Is host (192.168.71.201) an etcd host (y/n)? [n]: y
+[+] Override Hostname of host (192.168.71.201) [none]: 
+[+] Internal IP of host (192.168.71.201) [none]: 
+[+] Docker socket path on host (192.168.71.201) [/var/run/docker.sock]: 
+[+] SSH Address of host (2) [none]: 192.168.71.202
+[+] SSH Port of host (2) [22]: 22
+[+] SSH Private Key Path of host (192.168.71.202) [none]: ~/.ssh/id_rsa
+[+] SSH User of host (192.168.71.202) [ubuntu]: rancher
+[+] Is host (192.168.71.202) a Control Plane host (y/n)? [y]: y
+[+] Is host (192.168.71.202) a Worker host (y/n)? [n]: y
+[+] Is host (192.168.71.202) an etcd host (y/n)? [n]: y
+[+] Override Hostname of host (192.168.71.202) [none]: 
+[+] Internal IP of host (192.168.71.202) [none]: 
+[+] Docker socket path on host (192.168.71.202) [/var/run/docker.sock]: 
+[+] SSH Address of host (3) [none]: 192.168.71.203
+[+] SSH Port of host (3) [22]: 22
+[+] SSH Private Key Path of host (192.168.71.203) [none]: ~/.ssh/id_rsa
+[+] SSH User of host (192.168.71.203) [ubuntu]: rancher
+[+] Is host (192.168.71.203) a Control Plane host (y/n)? [y]: y
+[+] Is host (192.168.71.203) a Worker host (y/n)? [n]: y
+[+] Is host (192.168.71.203) an etcd host (y/n)? [n]: y
+[+] Override Hostname of host (192.168.71.203) [none]: 
+[+] Internal IP of host (192.168.71.203) [none]: 
+[+] Docker socket path on host (192.168.71.203) [/var/run/docker.sock]: 
+[+] Network Plugin Type (flannel, calico, weave, canal, aci) [canal]: 
+[+] Authentication Strategy [x509]: 
+[+] Authorization Mode (rbac, none) [rbac]: 
+[+] Kubernetes Docker image [rancher/hyperkube:v1.22.6-rancher1]: rancher/hyperkube:v1.21.9-rancher1
+[+] Cluster domain [cluster.local]: 
+[+] Service Cluster IP Range [10.43.0.0/16]: 
+[+] Enable PodSecurityPolicy [n]: 
+[+] Cluster Network CIDR [10.42.0.0/16]: 
+[+] Cluster DNS Service IP [10.43.0.10]: 
+[+] Add addon manifest URLs or YAML files [no]: 
