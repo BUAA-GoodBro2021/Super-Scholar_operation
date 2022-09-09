@@ -1,6 +1,6 @@
 ### 架构图
 
-![structure](structure.png)
+![structure](image/structure.png)
 
 ### Makefile
 
@@ -16,4 +16,4 @@ rke配置在cluster_detail.txt文件下。
 
 ### 运行说明
 
-将项目放置在~目录下。
+将项目放置在任意目录下，运行对应make指令即可搭建集群。
