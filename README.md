@@ -14,6 +14,10 @@ make node0x包含初始化虚拟机。
 
 rke配置在cluster_detail.txt文件下。
 
+### docker
+
+docker下面存放着Dockerfile以及k8s容器生成代码。
+
 ### 运行说明
 
 将项目放置在任意目录下，运行对应make指令即可搭建集群。

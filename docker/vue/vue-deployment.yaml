@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vue-deployment
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: vue-pod
+  template:
+    metadata:
+      labels:
+        app: vue-pod
+    spec:
+      containers:
+      - name: vue
+        image: registry.cn-hangzhou.aliyuncs.com/fl-rover/project:vue
+        ports:
+        - containerPort: 80

@@ -1,0 +1,1 @@
+import{u as n,E as _,o as c,c as u,a as r,w as l,b as i,t,d as e}from"./index.a542891e.js";const p={class:"about"},y={__name:"AboutView",setup(d){const{x:o,y:s}=n();return(m,b)=>{const a=_;return c(),u("div",p,[r(a,{type:"primary"},{default:l(()=>[i(t(e(o))+","+t(e(s)),1)]),_:1})])}}};export{y as default};
