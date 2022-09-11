@@ -4,11 +4,7 @@
 
 ### Makefile
 
-运行时先运行make init初始化脚本。
-
-make node01包含初始化虚拟机和配置rke以及k8s部署。
-
-make node0x包含初始化虚拟机。
+使用一级目录下的make node0x指令即可。
 
 ### rke
 
@@ -21,3 +17,7 @@ docker下面存放着Dockerfile以及k8s容器生成代码。
 ### 运行说明
 
 将项目放置在任意目录下，运行对应make指令即可搭建集群。
+
+make node01：包含rke的初始化k8s节点。
+
+make node0x：初始化k8s的节点。

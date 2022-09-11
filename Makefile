@@ -4,34 +4,27 @@ node01 \
 node02 \
 node03
 
-SHELL_PATH = ./shell
+PATH_SHELL = ./shell
 
 block:
 	# 需要添加参数
 init:
 	# 初始化虚拟机
-	chmod +x $(SHELL_PATH)/init.sh
+	chmod +x $(PATH_SHELL)/init.sh
 	# 配置虚拟机ssh
-	chmod +x $(SHELL_PATH)/ssh.sh
-	# rke移动
-	chmod +x $(SHELL_PATH)/rke_mv.sh
-	# rke配置
-	chmod +x $(SHELL_PATH)/rke_cfg.sh
-	# rke初始化
-	chmod +x $(SHELL_PATH)/rke_init.sh
+	chmod +x $(PATH_SHELL)/ssh.sh
+	# 配置rke
+	chmod +x $(PATH_SHELL)/rke.sh
 	# 配置kubectl
-	chmod +x $(SHELL_PATH)/kubectl.sh
+	chmod +x $(PATH_SHELL)/kubectl.sh
 	# 运行rancher
-	chmod +x $(SHELL_PATH)/rancher.sh
-node01: 
-	$(SHELL_PATH)/init.sh
-	$(SHELL_PATH)/ssh.sh
-	$(SHELL_PATH)/rke_mv.sh
-	$(SHELL_PATH)/rke_cfg.sh
-	$(SHELL_PATH)/rke_init.sh
-	$(SHELL_PATH)/kubectl.sh
-	$(SHELL_PATH)/rancher.sh
+	chmod +x $(PATH_SHELL)/rancher.sh
+node01:
+	make init
+	cd $(PATH_SHELL) && make node01
 node02:
-	$(SHELL_PATH)/init.sh
+	make init
+	cd $(PATH_SHELL) && make node02
 node03:
-	$(SHELL_PATH)/init.sh
+	make init
+	cd $(PATH_SHELL) && make node03

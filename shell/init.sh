@@ -1,3 +1,4 @@
+SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # 关闭防火墙
 systemctl stop firewalld
 systemctl disable firewalld
@@ -11,12 +12,21 @@ sed -ri 's/BOOTPROTO="dhcp"/BOOTPROTO="none"/' /etc/sysconfig/network-scripts/if
 systemctl start chronyd
 systemctl enable chronyd
 # 配置ip地址
+index=0
+args=""
 cat > /etc/hosts << EOF 
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6 
-192.168.71.201 node01 
-192.168.71.202 node02 
-192.168.71.203 node03 
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+`for i in $*
+do
+    args="$args$i "
+    let index++
+    if [ $(($index%2)) -eq 0 ]
+    then 
+        echo "$args"
+        args=""
+    fi
+done`
 EOF
 # 配置过滤机制
 cat > /etc/sysctl.conf << EOF 
@@ -42,8 +52,8 @@ EOF
 systemctl restart docker
 # 手动拉取docker-compose
 # curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x docker-compose-Linux-x86_64
-mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
+chmod +x $SCRIPT_PATH/docker-compose-Linux-x86_64
+cp $SCRIPT_PATH/docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
 # 设置rancher账号
 useradd rancher
 usermod -aG docker rancher
