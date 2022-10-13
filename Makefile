@@ -9,6 +9,8 @@ PATH_SHELL = ./shell
 block:
 	# 需要添加参数
 init:
+	# 初始化配置
+	chmod +x $(PATH_SHELL)/config.sh
 	# 初始化虚拟机
 	chmod +x $(PATH_SHELL)/init.sh
 	# 配置虚拟机ssh
