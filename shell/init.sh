@@ -57,4 +57,4 @@ cp $SCRIPT_PATH/docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
 # 设置rancher账号
 useradd rancher
 usermod -aG docker rancher
-echo 020626lyx | passwd --stdin rancher
+echo Super2021 | passwd --stdin rancher
