@@ -1,13 +1,13 @@
 SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # 关闭防火墙
-systemctl stop firewalld
-systemctl disable firewalld
+# systemctl stop firewalld
+# systemctl disable firewalld
 # 禁用selinux
 sed -ri 's/SELINUX=enforcing/SELINUX=diabled/' /etc/selinux/config
 # 关闭swap
 sed -ri 's/.*swap.*/#&/' /etc/fstab
 # 修改静态ip
-sed -ri 's/BOOTPROTO="dhcp"/BOOTPROTO="none"/' /etc/sysconfig/network-scripts/ifcfg-ens33
+# sed -ri 's/BOOTPROTO="dhcp"/BOOTPROTO="none"/' /etc/sysconfig/network-scripts/ifcfg-ens33
 # 设置时间同步
 systemctl start chronyd
 systemctl enable chronyd
@@ -17,6 +17,8 @@ args=""
 cat > /etc/hosts << EOF 
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+127.0.0.1   localhost localhost
+127.0.0.1   node2 node2
 `for i in $*
 do
     args="$args$i "
@@ -30,6 +32,10 @@ done`
 EOF
 # 配置过滤机制
 cat > /etc/sysctl.conf << EOF 
+vm.swappiness=0
+net.core.somaxconn=1024
+net.ipv4.tcp_max_tw_buckets=5000
+net.ipv4.tcp_max_syn_backlog=1024
 net.ipv4.ip_forward = 1 
 net.bridge.bridge-nf-call-ip6tables = 1 
 net.bridge.bridge-nf-call-iptables = 1 

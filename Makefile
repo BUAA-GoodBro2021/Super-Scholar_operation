@@ -1,8 +1,7 @@
 .PHONY: block \
 init \
-node01 \
-node02 \
-node03
+master \
+node
 
 PATH_SHELL = ./shell
 
@@ -21,12 +20,9 @@ init:
 	chmod +x $(PATH_SHELL)/kubectl.sh
 	# 运行rancher
 	chmod +x $(PATH_SHELL)/rancher.sh
-node01:
+master:
 	make init
-	cd $(PATH_SHELL) && make node01
-node02:
+	cd $(PATH_SHELL) && make master
+node:
 	make init
-	cd $(PATH_SHELL) && make node02
-node03:
-	make init
-	cd $(PATH_SHELL) && make node03
+	cd $(PATH_SHELL) && make node
